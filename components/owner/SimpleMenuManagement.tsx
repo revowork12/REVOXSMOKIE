@@ -36,6 +36,8 @@ export default function SimpleMenuManagement() {
   }
 
   const loadMenuItems = async () => {
+    if (!supabase) return
+    
     try {
       const { data, error } = await supabase
         .from('menu_items')
@@ -52,6 +54,8 @@ export default function SimpleMenuManagement() {
   }
 
   const loadProteinOptions = async () => {
+    if (!supabase) return
+    
     try {
       const { data, error } = await supabase
         .from('variant_options')
@@ -67,6 +71,8 @@ export default function SimpleMenuManagement() {
 
   // Toggle item availability
   const toggleItemAvailability = async (id: number, currentStatus: boolean) => {
+    if (!supabase) return
+    
     try {
       const { error } = await supabase
         .from('menu_items')
@@ -83,6 +89,7 @@ export default function SimpleMenuManagement() {
 
   // Delete specific item variant
   const deleteItemVariant = async (id: number, itemName: string) => {
+    if (!supabase) return
     if (!confirm(`Are you sure you want to delete this variant of "${itemName}"?`)) return
 
     try {
@@ -101,6 +108,7 @@ export default function SimpleMenuManagement() {
 
   // Add new protein option
   const addProteinOption = async () => {
+    if (!supabase) return
     if (!newProteinName.trim()) return
 
     try {
@@ -121,6 +129,8 @@ export default function SimpleMenuManagement() {
 
   // Toggle protein option
   const toggleProteinOption = async (id: number, currentStatus: boolean) => {
+    if (!supabase) return
+    
     try {
       const { error } = await supabase
         .from('variant_options')
@@ -137,6 +147,7 @@ export default function SimpleMenuManagement() {
 
   // Delete protein option
   const deleteProteinOption = async (id: number, name: string) => {
+    if (!supabase) return
     if (!confirm(`Are you sure you want to delete "${name}"? This will affect all menu items using this protein.`)) return
 
     try {

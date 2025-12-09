@@ -8,6 +8,13 @@ export interface TrackingData {
   status: OrderStatus
   timestamp: string
   lastUpdated: string
+  items?: Array<{
+    name: string
+    variant: string
+    quantity: number
+    price: number
+  }>
+  total?: number
 }
 
 class TrackingSystem {

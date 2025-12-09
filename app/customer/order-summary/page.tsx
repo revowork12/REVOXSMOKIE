@@ -131,7 +131,7 @@ export default function OrderSummaryPage() {
     } catch (error) {
       console.error('❌ Error placing order:', error)
       setIsPlacingOrder(false)
-      alert(`Failed to place order: ${error.message || 'Please try again.'}`)
+      alert(`Failed to place order: ${error instanceof Error ? error.message : 'Please try again.'}`)
     }
   }
 

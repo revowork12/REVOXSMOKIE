@@ -389,8 +389,7 @@ export default function MenuPage() {
                     style={{
                       borderColor: '#214194',
                       color: '#214194',
-                      backgroundColor: '#c4c4c4',
-                      focusRingColor: '#214194'
+                      backgroundColor: '#c4c4c4'
                     }}
                   >
                     <option value="">Choose</option>

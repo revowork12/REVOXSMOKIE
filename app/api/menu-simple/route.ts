@@ -3,6 +3,10 @@ import { supabase } from '@/lib/supabase'
 
 export async function GET() {
   try {
+    if (!supabase) {
+      return NextResponse.json({ error: 'Database connection failed' }, { status: 500 })
+    }
+    
     // Get grouped menu items with available proteins using the view
     const { data: menuGroups, error } = await supabase
       .from('menu_display')
@@ -46,6 +50,10 @@ export async function GET() {
 // Handle menu management actions
 export async function POST(request: Request) {
   try {
+    if (!supabase) {
+      return NextResponse.json({ error: 'Database connection failed' }, { status: 500 })
+    }
+
     const { action, ...params } = await request.json()
     
     if (action === 'get_proteins') {
